@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg1" {
-name = rg-human1
+name = "rg-human1"
 localtion = "eastus"
 }
 
@@ -10,3 +10,17 @@ resource_group_name = "rg-humana1"
 account_tier = "Standard"
 account_replication_type = "LRS"
 }
+
+resource "azurerm_virtual_network" "vnet1"{
+name = "hu_vnet1"
+location = "eastus"
+resource_group_name = "rg-human1"
+address_space = ["10.0.0.0/16 "]
+}
+resource "azurerm_subnet" "sub12" {
+name= "rh_sub1"
+resource_group_name = "rg-human1"
+virtual_network = "hu_vnet1"
+address_perfixes = [ "10.0.2.0" ]
+}
+
