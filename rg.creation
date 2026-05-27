@@ -2,3 +2,11 @@ resource "azurerm_resource_group" "rg1" {
 name = rg-human1
 localtion = "eastus"
 }
+
+resource "azurerm_storage_account" "stg1"{
+name = "stg-humana1"
+location = "eastus"
+resource_group_name = "rg-humana1"
+account_tier = "Standard"
+account_replication_type = "LRS"
+}
